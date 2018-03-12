@@ -1,0 +1,23 @@
+<aura:component implements="force:hasSObjectName,force:hasRecordId,forceCommunity:availableForAllPageTypes,lightning:actionOverride" controller="FileUpload" access="global">  
+    <aura:attribute name="recordId" type="String" default=""/>  
+    <aura:attribute name="fileName" type="String" default=""/>  	
+    <aura:attribute name="displayResults" type="Boolean" default="false"/>  	
+    <aura:attribute name="resultMessage" type="String" default=""/>  	
+  	<div class="slds-form slds-form_compound">
+	    <br />
+	    <!--buttons -->
+      	<div class="slds-grid slds-wrap slds-grid--pull-padded">
+        	<div class="slds-col--padded">
+            	<div class="slds-form-element">
+                	<lightning:input aura:id="fileUpload" type="file" label="Attach Direct Debit Form" name="file" multiple="false" accept="image/png, .zip" onchange="{!c.handleFilesChange }"/>
+                	<div class="slds-text-body_small">{!v.fileName} </div>
+				</div>
+			</div>
+		</div>
+		<aura:if isTrue="{!v.displayResults}">
+			<ui:outputText value="{!v.resultMessage}" />
+		</aura:if>	
+
+	</div>
+
+</aura:component>
